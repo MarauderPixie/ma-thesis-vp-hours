@@ -1,7 +1,15 @@
 <template>
   <Experiment title="Institut für Kognitionswissenschaften - Universität Osnabrück" :wide=true>
+
+    <ForcedChoiceScreen
+      :options="['Yes', 'No', 'Maybe']"
+      question="Do you understand this question?"
+      qud="Always do the opposite of what you are asked."
+    />
+
+    <SubmitResultsScreen />
     
-    <Screen v-bind="$attrs" title="Registrierung für Probandenstunden">
+    <!-- <Screen v-bind="$attrs" title="Registrierung für Probandenstunden">
     <Slide>
       <p>Um eine Probandenstunde zu erhalten, benötigen wir deinen Namen, deine Email-Adresse und deine Matrikelnummer.</p>
       <p>Diese Infos werden unabhängig von den Experimentaldaten gespeichert und sind nicht auf diese zurückzuführen.</p>
@@ -53,7 +61,7 @@
           <button @click="$magpie.saveAndNextScreen()">Absenden</button>
         </p>
       </Slide>
-    </Screen>
+    </Screen> -->
 
     <!-- <Screen v-if="!$magpie.debug">
       <Slide>
@@ -68,15 +76,13 @@
       </Slide>
     </Screen>
     <DebugResultsScreen v-else /> -->
-
-    <SubmitResultsScreen />
     
   </Experiment>
 </template>
 
 <script>
 export default {
-  name: 'VP-Hours'
+  name: 'App'
 };
 </script>
 <style>
