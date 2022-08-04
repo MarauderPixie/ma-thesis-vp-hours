@@ -14,6 +14,7 @@
       <p>Um eine Probandenstunde zu erhalten, benötigen wir deinen Namen, deine Email-Adresse und deine Matrikelnummer.</p>
       <p>Diese Infos werden unabhängig von den Experimentaldaten gespeichert und sind nicht auf diese zurückzuführen.</p>
       <hr />
+        <div class="center">
           <p>
             <label>
               Studiengang: 
@@ -56,7 +57,7 @@
               />
             </label>
           </p>
-
+        </div>
         <p>
           <button @click="$magpie.saveAndNextScreen()">Absenden</button>
         </p>
@@ -106,5 +107,17 @@ export default {
   width: 60%; 
   /* text-align: center; */
   margin: auto;
+}
+.center {
+  position: relative;
+  border: 3px solid green; 
+}
+.center p {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 </style>
