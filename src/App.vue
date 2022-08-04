@@ -1,15 +1,15 @@
 <template>
   <Experiment title="Institut für Kognitionswissenschaften - Universität Osnabrück" :wide=true>
 
-    <ForcedChoiceScreen
+    <!-- <ForcedChoiceScreen
       :options="['Yes', 'No', 'Maybe']"
       question="Do you understand this question?"
       qud="Always do the opposite of what you are asked."
     />
 
-    <SubmitResultsScreen />
+    <SubmitResultsScreen /> -->
     
-    <!-- <Screen v-bind="$attrs" title="Registrierung für Probandenstunden">
+    <Screen v-bind="$attrs" title="Registrierung für Probandenstunden">
     <Slide>
       <p>Um eine Probandenstunde zu erhalten, benötigen wir deinen Namen, deine Email-Adresse und deine Matrikelnummer.</p>
       <p>Diese Infos werden unabhängig von den Experimentaldaten gespeichert und sind nicht auf diese zurückzuführen.</p>
@@ -63,7 +63,7 @@
       </Slide>
     </Screen> -->
 
-    <!-- <Screen v-if="!$magpie.debug">
+    <Screen v-if="!$magpie.debug">
       <Slide>
         <p>Einen Augenblick, Daten werden übermittelt.</p>
         <Wait :time="0" @done="submit(() => $magpie.nextSlide())" />
@@ -75,14 +75,20 @@
         </div>
       </Slide>
     </Screen>
-    <DebugResultsScreen v-else /> -->
+    <DebugResultsScreen v-else />
     
   </Experiment>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  methods: {
+    async submit(cb) {
+      await this.$magpie.submit();
+      cb();
+    }
+  }
 };
 </script>
 <style>
