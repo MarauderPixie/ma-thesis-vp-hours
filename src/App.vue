@@ -1,74 +1,61 @@
 <template>
   <Experiment title="Institut für Kognitionswissenschaften - Universität Osnabrück" :wide=true>
 
-    <!-- <ForcedChoiceScreen
-      :options="['Yes', 'No', 'Maybe']"
-      question="Do you understand this question?"
-      qud="Always do the opposite of what you are asked."
-    />
-
-    <SubmitResultsScreen /> -->
-    
     <Screen v-bind="$attrs" title="Registrierung für Probandenstunden">
-    <Slide>
-      <p>Um eine Probandenstunde zu erhalten, benötigen wir deinen Namen, deine Email-Adresse und deine Matrikelnummer.</p>
-      <p>Diese Infos werden unabhängig von den Experimentaldaten gespeichert und sind nicht auf diese zurückzuführen.</p>
-      <hr />
-        <div class="center">
-          <p>
-            <label>
-              Studiengang: 
-              <DropdownInput
-                :options="['', 'Cognitive Science (Uni Osnabrück)', 'Psychologie (Uni Osnabrück)', 'Psychologie (Uni Bremen)', 'andere']"
-                :response.sync="$magpie.measurements.uni" 
-              />
+      <Slide>
+        <p>Um eine Probandenstunde zu erhalten, benötigen wir deinen Namen, deine Email-Adresse und deine Matrikelnummer.</p>
+        <p>Diese Infos werden unabhängig von den Experimentaldaten gespeichert und sind nicht auf diese zurückzuführen.</p>
+        <hr />
+        <p>
+          <label>
+            Studiengang: 
+            <DropdownInput
+              :options="['', 'Cognitive Science (Uni Osnabrück)', 'Psychologie (Uni Osnabrück)', 'Psychologie (Uni Bremen)', 'andere']"
+              :response.sync="$magpie.measurements.uni" 
+            />
             </label>
-          </p>
-          
-          <p>
-            <label>
-              Matrikelnummer:
-              <input
-                v-model="$magpie.measurements.matrikel"
-                type="text"
-                placeholder="3.14159265"
-              />
-            </label>
-          </p>
-          
-          <p>
-            <label>
-              Vor- und Nachname:
-              <input
-                v-model="$magpie.measurements.name"
-                type="text"
-                placeholder="Quentin Quaderkopf"
-              />
-            </label>
-          </p>
-          
-          <p>
-            <label>
-              Email-Adresse:
-              <input
-                v-model="$magpie.measurements.email"
-                type="text"
-                placeholder="uni@osnabrem.de"
-              />
-            </label>
-          </p>
-        </div>
+        </p>
+        <p>
+          <label>
+            Matrikelnummer:
+            <input
+              v-model="$magpie.measurements.matrikel"
+              type="text"
+              placeholder="3.14159265"
+            />
+          </label>
+        </p>
+        <p>
+          <label>
+            Vor- und Nachname:
+            <input
+              v-model="$magpie.measurements.name"
+              type="text"
+              placeholder="Quentin Quaderkopf"
+            />
+          </label>
+        </p>
+        <p>
+          <label>
+            Email-Adresse:
+            <input
+              v-model="$magpie.measurements.email"
+              type="text"
+              placeholder="uni@osnabrem.de"
+            />
+          </label>
+        </p>
         <p>
           <button @click="$magpie.saveAndNextScreen()">Absenden</button>
         </p>
       </Slide>
-    </Screen> -->
+    </Screen>
 
     <Screen v-if="!$magpie.debug">
-      <!-- <Slide>
+      <Slide>
         <p>Einen Augenblick, Daten werden übermittelt.</p>
         <Wait :time="0" @done="submit(() => $magpie.nextSlide())" />
-      </Slide> -->
+      </Slide>
       <Slide>
         <div class="fin">
           <p>Deine Daten wurden übermittelt und du kannst dir voraussichtlich Ende September deine VPh eintragen lassen. Solltest du sie vorher benötigen, melde dich gerne einfach bei <a href="tanton@uos.de">tanton@uos.de</a>.</p>
@@ -76,6 +63,7 @@
         </div>
       </Slide>
     </Screen>
+
     <DebugResultsScreen v-else />
     
   </Experiment>
@@ -105,7 +93,6 @@ export default {
 }
 .fin {
   width: 60%; 
-  /* text-align: center; */
   margin: auto;
 }
 </style>
