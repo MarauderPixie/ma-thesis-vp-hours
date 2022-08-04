@@ -1,5 +1,5 @@
 export default {
-  experimentId: '4',
+  experimentId: '5',
   serverUrl: 'magpie.jemu.name/api/submit_experiment/',
   socketUrl: 'wss://magpie.jemu.name/socket',
   // this will be used in prolific mode
