@@ -18,7 +18,7 @@
             <label>
               Studiengang: 
               <DropdownInput
-                :options="['', 'Cognitive Science (Uni Osnabrück)', 'Psychologie (Uni Bremen)', 'andere']"
+                :options="['', 'Cognitive Science (Uni Osnabrück)', 'Psychologie (Uni Osnabrück)', 'Psychologie (Uni Bremen)', 'andere']"
                 :response.sync="$magpie.measurements.uni" 
               />
             </label>
@@ -64,12 +64,12 @@
     </Screen> -->
 
     <Screen v-if="!$magpie.debug">
-      <Slide>
+      <!-- <Slide>
         <p>Einen Augenblick, Daten werden übermittelt.</p>
         <Wait :time="0" @done="submit(() => $magpie.nextSlide())" />
-      </Slide>
+      </Slide> -->
       <Slide>
-        <div style="width: 60%; text-align: center;">
+        <div class="fin">
           <p>Deine Daten wurden übermittelt und du kannst dir voraussichtlich Ende September deine VPh eintragen lassen. Solltest du sie vorher benötigen, melde dich gerne einfach bei <a href="tanton@uos.de">tanton@uos.de</a>.</p>
           <p>Noch einmal vielen Dank für deine Teilnahme!</p>
         </div>
@@ -101,5 +101,10 @@ export default {
   height: 64px;
   width: auto;
   margin-bottom: 20px;
+}
+.fin {
+  width: 60%; 
+  /* text-align: center; */
+  margin: auto;
 }
 </style>
