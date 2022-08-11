@@ -46,6 +46,16 @@
           </label>
         </p>
         <p>
+          <label>
+            Code vom Experiment:
+            <input
+              v-model="$magpie.measurements.code"
+              type="text"
+              placeholder="trustno1"
+            />
+          </label>
+        </p>
+        <p>
           <button @click="$magpie.saveAndNextScreen()">Absenden</button>
         </p>
       </Slide>
